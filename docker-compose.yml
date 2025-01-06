@@ -1,0 +1,75 @@
+version: "3.8"
+
+services:
+  # Base de datos PostgreSQL
+  db:
+    image: postgres:15
+    container_name: pokemon-tcg-db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - ./database/data:/var/lib/postgresql/data
+    networks:
+      - pokemon-tcg-network
+    restart: always
+
+  # Backend Django
+  backend:
+    build: ./backend
+    container_name: pokemon-tcg-backend
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    environment:
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - DEBUG=${DEBUG}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      - db
+    networks:
+      - pokemon-tcg-network
+    expose:
+      - 8000
+    restart: always
+
+  # Frontend Next.js
+  frontend:
+    build: ./frontend
+    container_name: pokemon-tcg-frontend
+    command: npm run dev
+    volumes:
+      - ./frontend:/app
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    networks:
+      - pokemon-tcg-network
+    expose:
+      - 3000
+    restart: always
+
+  # Nginx como proxy inverso
+  nginx:
+    image: nginx:alpine
+    container_name: pokemon-tcg-nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./frontend/public:/usr/share/nginx/html
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - pokemon-tcg-network
+    restart: always
+
+networks:
+  pokemon-tcg-network:
+    driver: bridge
