@@ -1,0 +1,40 @@
+# Ignorar los archivos y directorios relacionados con Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Ignorar archivos de configuración de entornos locales
+.env
+*.env
+
+# Ignorar archivos de base de datos locales
+*.sqlite3
+
+# Ignorar archivos de logs
+*.log
+
+# Ignorar directorios de dependencias no necesarias
+venv/
+env/
+.idea/
+.vscode/
+
+# Ignorar archivos de pruebas locales
+tests/
+
+# Ignorar otros archivos o directorios temporales
+*.bak
+*.swp
+*.swo
+
+# Ignorar Dockerfile
+Dockerfile
+
+# Ignorar directorios de archivos de documentación, si no son necesarios
+docs/
+
+# Ignorar archivos temporales generados por editores de texto
+*.sublime-workspace
+*.sublime-project

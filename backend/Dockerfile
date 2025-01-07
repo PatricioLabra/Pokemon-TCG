@@ -8,13 +8,13 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y libpq-dev gcc
 
 # Copiar el archivo requirements.txt al contenedor
-COPY backend/requirements.txt /app/
+COPY requirements.txt /app/
 
 # Instalar las dependencias de Python
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Copiar todo el código del proyecto al contenedor
-COPY backend/ /app/
+COPY ./ app/
 
 # Configuración de Django
 ENV PYTHONUNBUFFERED 1

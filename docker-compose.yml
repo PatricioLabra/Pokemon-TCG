@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   # Base de datos PostgreSQL
   db:
@@ -10,18 +8,18 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
     volumes:
-      - ./database/data:/var/lib/postgresql/data
+      - ./database/database_backup.sql:/docker-entrypoint-initdb.d/database_backup.sql
     networks:
       - pokemon-tcg-network
     restart: always
 
   # Backend Django
   backend:
-    build: ./backend
+    build: ./backend  # Este debe apuntar al directorio correcto
     container_name: pokemon-tcg-backend
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./backend:/app
+      - ./backend:/app  # Asegúrate de que esta ruta sea correcta
     environment:
       - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
       - DEBUG=${DEBUG}
@@ -37,6 +35,7 @@ services:
     expose:
       - 8000
     restart: always
+
 
   # Frontend Next.js
   frontend:
