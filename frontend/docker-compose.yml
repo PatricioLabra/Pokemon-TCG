@@ -1,0 +1,13 @@
+# Frontend Next.js
+services:
+  frontend:
+    build: .
+    container_name: pokemon-tcg-frontend
+    command: npm run dev
+    volumes:
+      - .:/app
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    ports:
+      - "3000:3000"
+    restart: always
