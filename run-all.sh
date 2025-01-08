@@ -30,5 +30,5 @@ else
   echo "Error al levantar los servicios."
 fi
 
-# Pausa al final (opcional)
+# Pausa al final
 read -p "Presiona [Enter] para cerrar..."
