@@ -1,35 +1,34 @@
 #!/bin/bash
 
-# Rutas de las subcarpetas
-declare -a services=("database" "backend" "frontend")
+# Contenedores definidos en el docker-compose.yml
+declare -a container_names=("pokemon-tcg-backend" "pokemon-tcg-frontend" "pokemon-tcg-db")
 
-# Iterar sobre cada carpeta y ejecutar docker-compose up
-for service in "${services[@]}"; do
-  echo "Levantando servicios en la carpeta $service..."
+echo "Iniciando proceso para el docker-compose unificado..."
 
-  # Eliminar contenedores existentes si están en ejecución
-  container_name="pokemon-tcg-${service}"
+# Detener y eliminar contenedores existentes si están en ejecución
+for container_name in "${container_names[@]}"; do
   if [ "$(docker ps -aq -f name=${container_name})" ]; then
     echo "Deteniendo y eliminando el contenedor ${container_name}..."
     docker rm -f $(docker ps -aq -f name=${container_name})
   fi
-
-  # Eliminar imágenes para asegurar que no se use el caché
-  echo "Eliminando imágenes de caché para el servicio ${service}..."
-  docker-compose -f ./$service/docker-compose.yml down --rmi all --volumes --remove-orphans
-  
-  # Levantar el servicio con build sin caché
-  (cd $service && docker-compose build --no-cache)
-  (cd $service && docker-compose up -d)
-  
-  if [ $? -eq 0 ]; then
-    echo "Servicio $service levantado correctamente."
-  else
-    echo "Error al levantar el servicio $service."
-  fi
 done
 
-echo "Todos los servicios se han levantado."
+# Eliminar imágenes para asegurar que no se use el caché
+echo "Eliminando imágenes y volúmenes huérfanos..."
+docker-compose down --rmi all --volumes --remove-orphans
 
-# Pausa al final
+# Reconstruir y levantar los servicios definidos en el docker-compose.yml unificado
+echo "Construyendo imágenes sin usar caché..."
+docker-compose build --no-cache
+
+echo "Levantando servicios en modo detacheado..."
+docker-compose up -d
+
+if [ $? -eq 0 ]; then
+  echo "Todos los servicios se han levantado correctamente."
+else
+  echo "Error al levantar los servicios."
+fi
+
+# Pausa al final (opcional)
 read -p "Presiona [Enter] para cerrar..."
