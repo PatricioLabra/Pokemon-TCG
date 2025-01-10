@@ -32,12 +32,12 @@ export const CardsGrid = ({ cards }: Props) => {
           onClick={closeCardDetail}
         >
           <div
-            className="bg-gray-800 rounded-lg p-6"
+            className="bg-gray-900/95 relative rounded-lg overflow-hidden shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <CardItemDetail card={selectedCard} />
             <button
-              className="absolute top-2 right-2 text-white"
+              className="absolute top-2 right-2 text-xl text-white-600 p-3"
               onClick={closeCardDetail}
             >
               ✕
