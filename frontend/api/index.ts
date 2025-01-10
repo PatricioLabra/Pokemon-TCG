@@ -1,4 +1,4 @@
-import { Set, Card, CardDetail } from "@/types";
+import { Set, Card } from "@/types";
 
 // Función genérica para realizar solicitudes a la API
 const fetchData = async <T>(url: string): Promise<T> => {
@@ -32,8 +32,8 @@ export const getCards = async (id_set: string): Promise<Card[]> => {
 };
 
 // Obtener detalles de una carta
-export const getCardDetail = async (id_card: string): Promise<CardDetail> => {
+export const getCardDetail = async (id_card: string): Promise<Card> => {
   const API_URL = process.env.API_URL;
   const CARD_URL = new URL(`cards/${id_card}/`, API_URL).toString();
-  return await fetchData<CardDetail>(CARD_URL);
+  return await fetchData<Card>(CARD_URL);
 };

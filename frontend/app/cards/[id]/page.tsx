@@ -1,5 +1,5 @@
 import { getCardDetail } from "@/api";
-import { CardDetail } from "@/types"
+import { Card } from "@/types"
 import { CardItemDetail } from "@/components/CardItemDetail";
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
 }
 export default async function CardPage({ params }: Props) {
   const { id } = await params
-  const card: CardDetail = await getCardDetail(id);
+  const card: Card = await getCardDetail(id);
   
   return (
     <div>

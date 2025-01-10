@@ -1,8 +1,8 @@
-import { CardDetail } from "@/types";
+import { Card } from "@/types";
 import Image from "next/image";
 
 interface Props {
-    card: CardDetail;
+    card: Card;
 }
 
 export const CardItemDetail = ({ card }: Props) => {
