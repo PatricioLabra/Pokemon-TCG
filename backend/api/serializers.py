@@ -26,3 +26,12 @@ class CardSerializer(serializers.ModelSerializer):
             'id', 'name', 'supertype', 'subtypes', 'types', 
             'set_id', 'number', 'rarity', 'images', 'markets'
         ]
+
+class SimpleCardSerializer(serializers.ModelSerializer):
+    images = ImageSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Card
+        fields = [
+            'id', 'name', 'supertype', 'number', 'rarity', 'images'
+        ]
