@@ -143,3 +143,31 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3002", "http://localhost:3001"
 ]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'ERROR',  # Solo mostrar errores en consola
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'ERROR',  # Solo registrar errores en un archivo
+            'class': 'logging.FileHandler',
+            'filename': 'error.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'ERROR',  # Solo mostrar errores de Django
+            'propagate': True,
+        },
+        'your_app': {
+            'handlers': ['console', 'file'],
+            'level': 'ERROR',  # Solo mostrar errores de tu aplicación
+            'propagate': True,
+        },
+    },
+}
