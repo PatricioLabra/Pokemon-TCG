@@ -22,5 +22,5 @@ ENV PYTHONUNBUFFERED 1
 # Exponer el puerto donde Django ejecutará el servidor
 EXPOSE 8000
 
-# Comando para iniciar el servidor Django
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+# Comando para aplicar las migraciones y luego iniciar el servidor Django
+CMD ["sh", "-c", "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"]
