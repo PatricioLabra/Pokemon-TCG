@@ -9,14 +9,12 @@ interface Props {
     params: { id: string };
 }
 
+/* Generación de la metadata con las catas del set */
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
 
     try {
-      // Obtener las cartas del set usando el id
       const cards: Card[] = await getCards(id);
-  
-      // Generar palabras clave dinámicas a partir de las cartas
       const keywords = cards.map(card => `${card.name}, ${card.supertype}, ${card.rarity || "rare"}`).join(", ");
   
       return {

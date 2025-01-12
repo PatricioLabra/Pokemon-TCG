@@ -4,11 +4,10 @@ import { SetGrid } from "@/components/SetGrid";
 import { Metadata } from "next";
 
 
+/* Generación de la metadata con los sets */
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const sets: Set[] = await getSets();
-
-    // Generar palabras clave dinámicas a partir de los sets
     const keywords = sets.map(set => `${set.name}, ${set.series}, ${set.ptcgo_code}`).join(", ");
 
     return {
