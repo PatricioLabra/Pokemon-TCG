@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django.contrib.postgres',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -92,10 +93,6 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': env('DB_PORT'),
     }
-    #'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': BASE_DIR / 'db.sqlite3',
-    #}
 }
 
 
@@ -149,11 +146,11 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
-            'level': 'ERROR',  # Solo mostrar errores en consola
+            'level': 'ERROR',
             'class': 'logging.StreamHandler',
         },
         'file': {
-            'level': 'ERROR',  # Solo registrar errores en un archivo
+            'level': 'ERROR',
             'class': 'logging.FileHandler',
             'filename': 'error.log',
         },
@@ -161,7 +158,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console', 'file'],
-            'level': 'ERROR',  # Solo mostrar errores de Django
+            'level': 'ERROR',
             'propagate': True,
         }
     },
