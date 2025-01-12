@@ -1,0 +1,61 @@
+services:
+  backend:
+    build: ./backend
+    container_name: pokemon-tcg-backend
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env
+    environment:
+      SECRET_KEY: ${SECRET_KEY}
+      DEBUG: ${DEBUG}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    restart: always
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    container_name: pokemon-tcg-frontend
+    command: npm run dev
+    volumes:
+      - ./frontend:/app
+    env_file:
+      - .env
+    environment:
+      API_URL: http://backend:8000/
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: always
+    networks:
+      - app-network
+
+  db:
+    image: postgres:17.2
+    container_name: pokemon-tcg-db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - ./database/database_backup.sql:/docker-entrypoint-initdb.d/database_backup.sql
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

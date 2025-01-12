@@ -1,0 +1,27 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Ignorar los archivos y directorios relacionados con el entorno local
+.env
+*.env.local
+*.env.development
+*.env.test
+
+# Archivos generados durante el proceso de construcción
+.next/
+out/
+
+# Archivos de configuración del editor de texto
+.vscode/
+.idea/
+
+# Archivos temporales
+.DS_Store
+Thumbs.db
+
+# Otros archivos no necesarios para la ejecución de la app
+*.log
+*.bak
