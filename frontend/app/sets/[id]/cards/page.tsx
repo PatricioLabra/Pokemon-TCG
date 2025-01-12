@@ -3,10 +3,45 @@ import { Card } from "@/types";
 import { CardsGrid } from "@/components/CardsGrid";
 import Link from "next/link";
 import { TbPokeball } from "react-icons/tb";
+import { Metadata } from "next";
 
 interface Props {
     params: { id: string };
 }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+
+    try {
+      // Obtener las cartas del set usando el id
+      const cards: Card[] = await getCards(id);
+  
+      // Generar palabras clave dinámicas a partir de las cartas
+      const keywords = cards.map(card => `${card.name}, ${card.supertype}, ${card.rarity || "rare"}`).join(", ");
+  
+      return {
+        title: `Card Collection for Set ${id}`,
+        description: `Discover the cards available in this set. Explore types, rarities, and more!`,
+        keywords: keywords,
+        robots: {
+          index: true,
+          follow: true,
+        },
+      };
+    } catch (error) {
+      console.error("Error obteniendo información de las cartas", error);
+  
+      return {
+        title: "Card Collection",
+        description: "Explore a variety of collectible cards. View details, types, and rarities.",
+        keywords: "pokemon cards, collectible, rare cards",
+        robots: {
+          index: true,
+          follow: true,
+        },
+      };
+    }
+  }
 
 export default async function CardsPage({ params }: Props) {
     const { id } = await params;

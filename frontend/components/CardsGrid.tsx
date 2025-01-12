@@ -99,7 +99,7 @@ export const CardsGrid = ({ cards }: Props) => {
         <div className="w-full sm:w-auto mt-2 sm:mt-0">
           <button
             onClick={resetFilters}
-            className="p-2 w-full sm:w-auto bg-gradient-to-r rounded-md from-yellow-400 via-red-500 to-pink-600 text-white shadow-xl hover:from-yellow-500 hover:via-red-600 hover:to-pink-700  hover:opacity-100"
+            className="p-2 w-full sm:w-auto bg-gradient-to-r rounded-md from-pink-600 via-red-500 to-yellow-400 text-white shadow-xl hover:from-to-pink-700 hover:via-red-600 hover:to-yellow-500  hover:opacity-100"
           >
             Reset Filters
           </button>
@@ -108,8 +108,8 @@ export const CardsGrid = ({ cards }: Props) => {
 
       {/* Grid de cards */}
       <div className="flex flex-wrap gap-10 items-center justify-center">
-        {filteredCards.map((card) => (
-          <CardItem key={card.id} card={card} onClick={() => openCardDetail(card)} />
+        {filteredCards.map((card, index) => (
+          <CardItem key={card.id} card={card} index={index} onClick={() => openCardDetail(card)} />
         ))}
 
         {selectedCard && (

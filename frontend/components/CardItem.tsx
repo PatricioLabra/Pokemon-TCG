@@ -4,9 +4,10 @@ import Image from "next/image";
 interface Props {
   card: Card;
   onClick: () => void;
+  index: number;
 }
 
-export const CardItem = ({ card, onClick }: Props) => {
+export const CardItem = ({ card, onClick, index }: Props) => {
   const { name, supertype, number, rarity, images, types} = card;
 
   return (
@@ -28,7 +29,7 @@ export const CardItem = ({ card, onClick }: Props) => {
               width={150}
               height={50}
               className="rounded-lg shadow-lg mx-auto"
-              priority={false}
+              priority={index < 20}
             />
           </div>
           

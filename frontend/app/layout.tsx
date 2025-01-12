@@ -13,9 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pokemon TCG",
-  description: "Juego de cartas",
+  title: "Pokémon TCG - Trading Card Game",
+  description: "Explore and collect cards from the exciting world of Pokémon TCG. Discover sets, strategies, and card details to enhance your gameplay.",
+  keywords: ["pokemon", "tcg", "trading cards", "collectible cards", "card game", "strategy", "card sets"],
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
+
 
 export default function RootLayout({
   children,

@@ -23,7 +23,7 @@ export const SetItem = ({ set }: Props) => {
                 width={120}
                 height={140}
                 className="rounded-lg shadow-lg"
-                priority={false}
+                priority={true}
               />
             </div>
 
@@ -47,7 +47,7 @@ export const SetItem = ({ set }: Props) => {
               width={40}
               height={40}
               className="rounded-full"
-              priority={false}
+              priority={true}
             />
           </div>
         </div>
