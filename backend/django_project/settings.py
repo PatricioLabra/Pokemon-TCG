@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
         'PASSWORD': env('DB_PASSWORD'),
-        'HOST': 'localhost',
+        'HOST': env('DB_HOST'),
         'PORT': env('DB_PORT'),
     }
 }
@@ -138,7 +138,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3002", "http://localhost:3001"
+    "http://localhost:3001", "http://localhost:3000"
 ]
 
 LOGGING = {
