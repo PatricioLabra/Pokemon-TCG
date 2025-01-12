@@ -8,6 +8,8 @@ interface Props {
 export const SetGrid = ({ sets }: Props) => {
     return (
         <div className="flex flex-wrap gap-10 items-center justify-center">
+            
+            {/* Generamos los sets */}
             {sets.map(set => (
                 <SetItem key={set.id} set={set} />
             ))}

@@ -11,6 +11,7 @@ export default async function CardPage({ params }: Props) {
   
   return (
     <div>
+      {/* Detalle de carta */}
       <CardItemDetail card = {card} />
     </div>
   );

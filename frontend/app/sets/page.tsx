@@ -9,6 +9,7 @@ export default async function SetsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-yellow-400 via-red-500 to-pink-600  text-white py-10 px-4">
       <div className="max-w-7xl mx-auto text-center">
+        
         {/* Título */}
         <h1 className="text-4xl font-extrabold text-yellow-400 mb-6">
           Card Sets Collection

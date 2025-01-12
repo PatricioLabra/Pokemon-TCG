@@ -14,6 +14,7 @@ export const SetItem = ({ set }: Props) => {
       <Link href={`/sets/${id}/cards`}>
         <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-600 rounded-lg overflow-hidden shadow-xl transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:opacity-100 opacity-90">
           <div className="flex flex-col items-center justify-center text-center p-20 bg-gray-900/80 border-b-4 border-yellow-500">
+          
             {/* Logo del set */}
             <div className="mb-4">
               <Image

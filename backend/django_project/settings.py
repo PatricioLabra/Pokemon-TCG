@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'corsheaders',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -140,5 +141,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3002",
+    "http://localhost:3002", "http://localhost:3001"
 ]
