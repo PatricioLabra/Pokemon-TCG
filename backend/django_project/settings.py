@@ -163,11 +163,6 @@ LOGGING = {
             'handlers': ['console', 'file'],
             'level': 'ERROR',  # Solo mostrar errores de Django
             'propagate': True,
-        },
-        'your_app': {
-            'handlers': ['console', 'file'],
-            'level': 'ERROR',  # Solo mostrar errores de tu aplicación
-            'propagate': True,
-        },
+        }
     },
 }
