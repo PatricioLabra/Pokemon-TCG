@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, Markets } from "@/types";
 import Image from "next/image";
 import Button from "./Button";
