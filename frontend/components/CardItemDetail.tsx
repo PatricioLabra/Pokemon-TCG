@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, Markets } from "@/types";
 import Image from "next/image";
 import Button from "./Button";
@@ -31,7 +33,7 @@ export const CardItemDetail = ({ card }: Props) => {
             <div className="flex items-center w-full max-w-6xl">
                 <div className="relative flex justify-center items-center w-72 sm:w-96 h-auto overflow-hidden rounded-lg">
                     {isLoading && (
-                        <div className="inset-0 flex justify-center items-center bg-opacity-50 pointer-events-none">
+                        <div className="inset-0 flex justify-center items-center bg-opacity-50 pointer-events-none pl-20 sm:pl-44">
                             <div className="w-12 h-12 border-4 border-t-yellow-400 border-solid rounded-full animate-spin"></div>
                         </div>
                     )}
@@ -44,8 +46,10 @@ export const CardItemDetail = ({ card }: Props) => {
                         priority={false}
                         onLoad={() => setIsLoading(false)}
                         onClick={toggleImageSize}
-                        className={`transition-all duration-500 ease-in-out transform cursor-pointer
-                            ${isEnlarged ? "fixed top-1/2 left-1/2 w-3/4 sm:w-1/4 h-3/4 transform -translate-x-1/2 -translate-y-1/2 z-20" : ""}`}
+                        className={`transition-opacity duration-700 ease-in-out transform cursor-pointer
+                            ${isEnlarged ? "fixed top-1/2 left-1/2 w-3/4 sm:w-1/4 h-3/4 transform -translate-x-1/2 -translate-y-1/2 z-20 opacity-100 scale-105" : "opacity-100 scale-100"}
+                            ${isLoading ? "opacity-0 scale-95" : "opacity-100 scale-100"} 
+                            ${!isLoading ? "transition-opacity delay-500" : ""}`}
                     />
                 </div>
 
