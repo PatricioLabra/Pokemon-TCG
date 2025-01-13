@@ -3,12 +3,12 @@ Guía para ejecutar la aplicación en un ambiente local.
 
 ## **Requisitos Previos**
 - Tener **Docker** instalado en tu máquina.
-- Tener Python y Nodejs instalado.
+- Tener **Python** y **Nodejs** instalado.
 
 ---
 
 ## **Ejecución de la Aplicación con Docker**
-1. **Copiar el archivo `.env`**  
+1. **Copiar el archivo `.env` (de docker)**  
    Coloca el archivo `.env` (enviado por correo) en la **ruta base del proyecto** (`Pokemon-TCG`).
 
 2. **Ejecutar el script**  
