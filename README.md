@@ -32,7 +32,7 @@ Guía para ejecutar la aplicación en un ambiente local.
 
 ---
 
-### **2. Configurar y ejecutar el backend (desde la ruta ./backend) **
+### **2. Configurar y ejecutar el backend (desde la ruta ./backend)**
 1. **Crear entorno virtual**  
    ```bash
    python -m venv venv
