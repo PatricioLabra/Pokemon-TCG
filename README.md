@@ -17,10 +17,6 @@ Guía para ejecutar la aplicación en un ambiente local.
    - Crea los contenedores necesarios para el **frontend**, **backend** y la **base de datos**.  
    - Restaura la base de datos desde el backup proporcionado.
 
-   ```bash
-   ./run-all.sh
-   ```
-
 ---
 
 ## **Ejecución Manual (Frontend y Backend Locales)**
