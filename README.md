@@ -68,7 +68,7 @@ Guía para ejecutar la aplicación en un ambiente local.
    ```
 2. **Levantar el servidor del frontend**  
    ```bash
-   npm run server
+   npm run dev
    ```
 
 ---
@@ -77,7 +77,7 @@ Guía para ejecutar la aplicación en un ambiente local.
 - La base de datos condicionalmente debe ser levantada con docker. 
 - Si encuentras problemas, verifica que el archivo `.env` esté correctamente configurado.
 - Usa los logs de Docker o los servidores locales para identificar posibles errores.
-- Me puedes contactar al correo en caso de cualquier problema.
+- Me puedes contactar al correo en caso de cualquier problema -> 📧 patricio.labra827@gmail.com 
 
 ---
 ## ¡Gracias por esta valiosa oportunidad!
