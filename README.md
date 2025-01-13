@@ -32,7 +32,7 @@ Guía para ejecutar la aplicación en un ambiente local.
 
 ---
 
-### **2. Configurar y ejecutar el backend**
+### **2. Configurar y ejecutar el backend (desde la ruta ./backend) **
 1. **Crear entorno virtual**  
    ```bash
    python -m venv venv
@@ -61,7 +61,7 @@ Guía para ejecutar la aplicación en un ambiente local.
 
 ---
 
-### **3. Configurar y ejecutar el frontend**
+### **3. Configurar y ejecutar el frontend (desde la ruta ./frontend)**
 1. **Instalar dependencias**  
    ```bash
    npm install
