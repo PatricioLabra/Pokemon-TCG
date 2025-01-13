@@ -12,7 +12,7 @@ Guía para ejecutar la aplicación en un ambiente local.
    Coloca el archivo `.env` (enviado por correo) en la **ruta base del proyecto** (`Pokemon-TCG`).
 
 2. **Ejecutar el script**  
-   Usa el archivo `run-all.sh` para levantar la aplicación. Este script:  
+   Usa el archivo `run-all.sh` o `run-all.bat` para levantar la aplicación. Este script:  
    - Ejecuta el **docker-compose**.  
    - Crea los contenedores necesarios para el **frontend**, **backend** y la **base de datos**.  
    - Restaura la base de datos desde el backup proporcionado.
