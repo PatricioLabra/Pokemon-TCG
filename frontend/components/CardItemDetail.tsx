@@ -33,7 +33,7 @@ export const CardItemDetail = ({ card }: Props) => {
             <div className="flex items-center w-full max-w-6xl">
                 <div className="relative flex justify-center items-center w-72 sm:w-96 h-auto overflow-hidden rounded-lg">
                     {isLoading && (
-                        <div className="inset-0 flex justify-center items-center bg-opacity-50 pointer-events-none">
+                        <div className="inset-0 flex justify-center items-center bg-opacity-50 pointer-events-none pl-20 sm:pl-44">
                             <div className="w-12 h-12 border-4 border-t-yellow-400 border-solid rounded-full animate-spin"></div>
                         </div>
                     )}
