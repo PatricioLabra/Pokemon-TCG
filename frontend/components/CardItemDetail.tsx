@@ -46,7 +46,7 @@ export const CardItemDetail = ({ card }: Props) => {
                         priority={false}
                         onLoad={() => setIsLoading(false)}
                         onClick={toggleImageSize}
-                        className={`transition-all duration-700 ease-in-out transform cursor-pointer
+                        className={`transition-opacity duration-700 ease-in-out transform cursor-pointer
                             ${isEnlarged ? "fixed top-1/2 left-1/2 w-3/4 sm:w-1/4 h-3/4 transform -translate-x-1/2 -translate-y-1/2 z-20 opacity-100 scale-105" : "opacity-100 scale-100"}
                             ${isLoading ? "opacity-0 scale-95" : "opacity-100 scale-100"} 
                             ${!isLoading ? "transition-opacity delay-500" : ""}`}
