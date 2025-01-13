@@ -5,13 +5,13 @@ import Link from "next/link";
 import { TbPokeball } from "react-icons/tb";
 import { Metadata } from "next";
 
-interface Props {
-    params: { id: string };
+type Props = {
+  params: Promise<{ id: string }>
 }
 
-/* Generación de la metadata con las catas del set */
+/* Generación de la metadata con las cartas del set */
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
+  const id = (await params).id;
 
     try {
       const cards: Card[] = await getCards(id);
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
 export default async function CardsPage({ params }: Props) {
-    const { id } = await params;
+    const id = (await params).id;
     const cards: Card[] = await getCards(id);
 
     return (

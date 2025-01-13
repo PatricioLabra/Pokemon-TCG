@@ -3,14 +3,16 @@ import { Card } from "@/types"
 import { CardItemDetail } from "@/components/CardItemDetail";
 import { Metadata } from "next";
 
-interface Props {
-    params: { id: string };
+type Props = {
+  params: Promise<{ id: string }>
 }
-
+ 
 /* Generación de la metadata por carta */
-export async function generateMetadata( { params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const id = (await params).id;
+  
   try {
-    const card: Card = await getCardDetail(params.id);
+    const card: Card = await getCardDetail(id);
 
     return {
       title: `#${ card.id } - ${ card.name }`,
@@ -39,7 +41,7 @@ export async function generateMetadata( { params }: Props): Promise<Metadata> {
 }
 
 export default async function CardPage({ params }: Props) {
-  const { id } = await params;
+  const id = (await params).id;
   const card: Card = await getCardDetail(id);
   
   return (
