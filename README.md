@@ -9,7 +9,7 @@ Guía para ejecutar la aplicación en un ambiente local.
 
 ## **Ejecución de la Aplicación con Docker**
 1. **Copiar el archivo `.env` (de docker)**  
-   Coloca el archivo `.env` (enviado por correo) en la **ruta base del proyecto** (`Pokemon-TCG`).
+   Coloca el archivo `.env` en la **ruta base del proyecto** (`Pokemon-TCG`).
 
 2. **Ejecutar el script**  
    Usa el archivo `run-all.sh` o `run-all.bat` para levantar la aplicación. Este script:  
@@ -22,7 +22,7 @@ Guía para ejecutar la aplicación en un ambiente local.
 ## **Ejecución Manual (Frontend y Backend Locales)**
 
 ### **1. Preparar el entorno**
-- Copia el archivo `.env` (de desarrollo) enviado por correo:
+- Copia el archivo `.env` (de desarrollo):
   - **Frontend**: Coloca el `.env` en la ruta base del frontend.
   - **Backend**: Coloca el `.env` en la carpeta `./django_project`.
 
@@ -73,10 +73,7 @@ Guía para ejecutar la aplicación en un ambiente local.
 - La base de datos condicionalmente debe ser levantada con docker. 
 - Si encuentras problemas, verifica que el archivo `.env` esté correctamente configurado.
 - Usa los logs de Docker o los servidores locales para identificar posibles errores.
-- Me puedes contactar al correo en caso de cualquier problema -> 📧 patricio.labra827@gmail.com 
 
----
-## ¡Gracias por esta valiosa oportunidad!
 
 ![pikachu-deliciousdaywithpokemon](https://github.com/user-attachments/assets/35edb554-fe48-4fbe-8717-86a4c32e998e)
 
